@@ -1,19 +1,16 @@
-process.stdout.write('\x07');
+const numbers = process.argv.slice(2);
 
-// have to slice(2) to take off first two lines of argv
-// edge cases we want to filter out:
-//  no numbers are provided - shouldn't beep at all
-//  negative numbers - ignore/skip
-//  NaN - ignore/skip
-// we want to sort the time/command line args
-// convert command line args to 1000's
-// setTimeout with  process.stdout.write('\x07');
-
-let timer = function(seconds) {
+const timer = function(seconds) {
   for (let second of seconds) {
-
+    let time = Number(second)
+    if (time > 0) {
+      setTimeout (() => {
+        process.stdout.write('\x07');
+      }, time * 1000)
+    }
   }
 }
-setTimeout (() => {
-  process.stdout.write('\x07');
-}, second * 1000)
+timer(numbers);
+
+
+   
