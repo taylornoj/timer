@@ -8,3 +8,12 @@ process.stdout.write('\x07');
 // we want to sort the time/command line args
 // convert command line args to 1000's
 // setTimeout with  process.stdout.write('\x07');
+
+let timer = function(seconds) {
+  for (let second of seconds) {
+
+  }
+}
+setTimeout (() => {
+  process.stdout.write('\x07');
+}, second * 1000)
